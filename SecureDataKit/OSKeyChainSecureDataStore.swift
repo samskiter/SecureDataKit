@@ -25,7 +25,7 @@ public class OSKeyChainSecureDataStore: SecureDataStore {
     query.setObject(service, forKey: "\(kSecAttrService)")
     query.setObject(key, forKey: "\(kSecAttrAccount)")
     query.setObject(true, forKey: "\(kSecReturnData)")
-    var result = UnsafeMutablePointer<Unmanaged<AnyObject>?>.alloc(1)
+    var result = UnsafeMutablePointer<AnyObject?>.alloc(1)
     result.initialize(nil)
     let status = SecItemCopyMatching(query, result)
     if status == errSecItemNotFound {
